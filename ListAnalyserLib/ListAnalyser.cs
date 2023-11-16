@@ -11,9 +11,8 @@
             {            
                 int i = 0;
                 uint tmpSum = 0;
-                bool isFound = false; // как по break выйти из основного и вложенного циклов?
 
-                while ((i < list.Count - 1) && (!isFound))
+                while (i < list.Count - 1)
                 {
                     int j = i;
                     while ((j < list.Count) && (tmpSum <= sum))
@@ -23,8 +22,7 @@
                         {
                             start = i;
                             end = j + 1;
-                            isFound = true;
-                            break;
+                            return;
                         }
                         j++;
                     }
