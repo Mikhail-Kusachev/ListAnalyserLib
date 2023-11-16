@@ -10,27 +10,15 @@
             try
             {            
                 int i = 0;
-
-                uint tmpSum = list[i];
-
+                uint tmpSum = 0;
                 bool isFound = false; // как по break выйти из основного и вложенного циклов?
 
                 while ((i < list.Count - 1) && (!isFound))
                 {
-                    // не могу от этой проверки избавиться, все время какая то хрень
-                    // если пытаюсь проверку случая, когда первый элемент сразу равен sum засунуть внутрь вложенного цикла
-                    // цикл либо за границы массива выходит, либо не успевает сравнить последний элемент массива
-                    if (tmpSum == sum)
-                    {
-                        start = i;
-                        end = i + 1;
-                        break;
-                    }
-                    int j = i + 1;
+                    int j = i;
                     while ((j < list.Count) && (tmpSum <= sum))
                     {
                         tmpSum += list[j];
-
                         if (tmpSum == sum)
                         {
                             start = i;
@@ -41,7 +29,7 @@
                         j++;
                     }
                     i++;
-                    tmpSum = list[i];
+                    tmpSum = 0;
                 }
             } catch (Exception ex)
             {
